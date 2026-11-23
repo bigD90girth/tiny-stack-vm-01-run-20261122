@@ -1,6 +1,5 @@
 import f from'node:fs';
 const I=process.env.MAKEFUN_INPUT_DIR??'/input',O=process.env.MAKEFUN_OUTPUT_DIR??'/output',R=f.readFileSync,W=f.writeFileSync;
-const B='a+b|0;a-b|0;Math.imul(a,b);a/b|0;a%b|0;u/v|0;u%v|0;;a&b;a|b;a^b;;a<<b;a>>b;a>>>b|0;;+(a==b);+(a<b);+(u<v)'.split(';');
 function run(p,q){
 const D=[],C=[],M=[];
 let s=0,c=0,pc=0,st=0,ip=0,ol=0,a,b,u,v,out='';
@@ -31,7 +30,7 @@ case 80:U();a=D[--s]+'';if((ol+=a.length)>65536)throw 11;out+=a;break;
 case 81:U();if(++ol>65536)throw 11;out+=String.fromCharCode(D[--s]&255);break;
 case 82:P(ip<q.length?q[ip++]:-1);break;
 case 83:U();return[out,D[--s]&255];
-default:if(o>15&o<35&&o!=31){U(2);if(o>18&o<23&&!D[s-1])throw 4;b=D[s-1];a=D[s-2];u=a>>>0;v=b>>>0;s-=2;P(eval(B[o-16]))}else throw 5;
+default:if(o>15&o<35&&o!=31){U(2);if(o>18&o<23&&!D[s-1])throw 4;b=D[s-1];a=D[s-2];u=a>>>0;v=b>>>0;s-=2;P(eval('a+b|0;a-b|0;Math.imul(a,b);a/b|0;a%b|0;u/v|0;u%v|0;;a&b;a|b;a^b;;a<<b;a>>b;a>>>b|0;;+(a==b);+(a<b);+(u<v)'.split(';')[o-16]))}else throw 5;
 }
 }}catch(e){return[out,e]}
 }

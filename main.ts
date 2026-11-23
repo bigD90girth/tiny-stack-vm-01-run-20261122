@@ -34,4 +34,4 @@ default:if(o>15&o<35&&o!=31){U(2);if(o>18&o<23&&!D[s-1])throw 4;b=D[s-1];a=D[s-2
 }
 }}catch(e){return[out,e]}
 }
-f.readdirSync(I).map(d=>{const u=I+'/'+d,w=O+'/'+d,[a,b]=run(R(u+'/program.bin'),R(u+'/input.bin'));f.mkdirSync(w,{recursive:!0});W(w+'/stdout.bin',a,'latin1');W(w+'/exit.txt',b+'\n')});
+f.readdirSync(I).map(d=>{const u=I+'/'+d,w=O+'/'+d,[a,b]=run(R(u+'/program.bin'),R(u+'/input.bin'));f.mkdirSync(w,{recursive:!0});W(w+'/stdout.bin',a,'latin1');W(w+'/exit.txt',b+'')});
